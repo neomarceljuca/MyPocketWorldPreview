@@ -3,33 +3,42 @@ using UnityEngine;
 namespace mpw.Entity
 {
 
-    public class EntityComponent : SerializedScriptableObject
+    public abstract class EntityComponent : SerializedScriptableObject
     {
-        private Entity entity;
-
-        public Entity Entity
+        public abstract EntityComponentData BuildComponent(Entity entity);
+        public abstract class EntityComponentData
         {
-            get { return entity; }
-            set { entity = value; }
-        }
-        public virtual void Start() => HandleSubscribeToPersistentEvents(true);
-        public virtual void OnEnable()
-        {
-            HandleSubscribeToEvents(true);
-        }
-        public virtual void OnDisable()
-        {
-            HandleSubscribeToEvents(false);
-        }
-        public virtual void OnDestroy() => HandleSubscribeToPersistentEvents(false);
-        public virtual void Update() { }
-        public virtual void LateUpdate() { }
-        public virtual void FixedUpdate() { }
+            #region Variables
+            private Entity entity;
+
+            public Entity Entity
+            {
+                get { return entity; }
+                set { entity = value; }
+            }
+            #endregion
+
+            public EntityComponentData(Entity entity) => this.entity = entity;
+
+            public virtual void Start() => HandleSubscribeToPersistentEvents(true);
+            public virtual void OnEnable()
+            {
+                HandleSubscribeToEvents(true);
+            }
+            public virtual void OnDisable()
+            {
+                HandleSubscribeToEvents(false);
+            }
+            public virtual void OnDestroy() => HandleSubscribeToPersistentEvents(false);
+            public virtual void Update() { }
+            public virtual void LateUpdate() { }
+            public virtual void FixedUpdate() { }
 
 
-        #region Events
-        protected virtual void HandleSubscribeToEvents(bool subscribe) { }
-        protected virtual void HandleSubscribeToPersistentEvents(bool subscribe) { }
-        #endregion
+            #region Events
+            protected virtual void HandleSubscribeToEvents(bool subscribe) { }
+            protected virtual void HandleSubscribeToPersistentEvents(bool subscribe) { }
+            #endregion
+        }
     }
 }
