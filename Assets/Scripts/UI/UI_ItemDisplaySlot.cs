@@ -1,12 +1,12 @@
 using mpw.InventorySystem;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace mpw.UI
 {
-    public class UI_ItemDisplaySlot : MonoBehaviour
+    public class UI_ItemDisplaySlot : UI_ItemObject
     {
-        public ItemParameters parameters;
         public Image icon;
 
         private void OnEnable()
@@ -15,6 +15,7 @@ namespace mpw.UI
 
         public void Setup(ItemParameters parameters) 
         {
+            this.Parameters = parameters;
             icon.sprite = parameters.Icon;
             icon.enabled = true;
         }
@@ -24,5 +25,6 @@ namespace mpw.UI
             icon.sprite = null;
             icon.enabled = false;
         }
+
     }
 }
