@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff4007cb91a5e2245912bb4821f8bb3f, type: 3}
-  m_Name: ItemGroup_DefaultInventory
+  m_Script: {fileID: 11500000, guid: 61c76ae9c85b2c249a627cf599a9a7e0, type: 3}
+  m_Name: Equipment_Bottom_Skirt1
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -21,8 +21,11 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  items:
-  - {fileID: 11400000, guid: 432744315ae0e9b45a107027d705bf9b, type: 2}
-  - {fileID: 11400000, guid: 811c378b95c8ce44d9010cc5292faf3e, type: 2}
-  - {fileID: 11400000, guid: 650843b71573d2f42ab76bc462f1196e, type: 2}
-  - {fileID: 11400000, guid: 0f1961e6bc023294982aee8fec903409, type: 2}
+  displayName: Skirt 1
+  icon: {fileID: 21300000, guid: ae8a6c0e1d34d0f4abab164699160699, type: 3}
+  price: 10
+  maxStack: 1
+  category: 5
+  mesh: {fileID: -3309282863404026315, guid: 901d3589ec525584597647af9631354a, type: 3}
+  defaultColor: {r: 1, g: 1, b: 1, a: 1}
+  material: {fileID: -140102249556894325, guid: 901d3589ec525584597647af9631354a, type: 3}

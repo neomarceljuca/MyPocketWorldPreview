@@ -2,7 +2,6 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 namespace mpw.Entity
 {
-
     public abstract class EntityComponent : SerializedScriptableObject
     {
         public abstract EntityComponentData BuildComponent(Entity entity);

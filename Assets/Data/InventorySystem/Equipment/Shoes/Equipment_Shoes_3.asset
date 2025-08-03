@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 61c76ae9c85b2c249a627cf599a9a7e0, type: 3}
-  m_Name: Equipment_Hair_MessyShort
+  m_Name: Equipment_Shoes_3
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -21,9 +21,11 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  displayName: Messy Short
+  displayName: Shoes 1
   icon: {fileID: 21300000, guid: ae8a6c0e1d34d0f4abab164699160699, type: 3}
-  price: 12
+  price: 10
   maxStack: 1
-  model: {fileID: 919132149155446097, guid: 85fb5d0c561b4d14589b52ce9c8c6d58, type: 3}
-  defaultColor: {r: 0.26415092, g: 0.22054109, b: 0.22054109, a: 1}
+  category: 6
+  mesh: {fileID: 5433102353385186542, guid: e7ff3f6cd86a3c548819184f4c0aa178, type: 3}
+  defaultColor: {r: 1, g: 1, b: 1, a: 1}
+  material: {fileID: 2100000, guid: 857b097dc73d14548a264d01494bc35b, type: 2}

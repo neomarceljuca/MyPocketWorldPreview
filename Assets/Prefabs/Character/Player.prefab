@@ -258,6 +258,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 181036081040166798, guid: 6eef93bff5cc22141a3a65de265b45b4, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -5913127402123556805, guid: c1d82f755fdad724abf19ae9beed1056, type: 3}
     - target: {fileID: 183242620255679870, guid: 6eef93bff5cc22141a3a65de265b45b4, type: 3}
       propertyPath: m_Layer
       value: 6
@@ -301,6 +305,10 @@ PrefabInstance:
     - target: {fileID: 1764403767043032670, guid: 6eef93bff5cc22141a3a65de265b45b4, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1764403767043032670, guid: 6eef93bff5cc22141a3a65de265b45b4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1804594514931884901, guid: 6eef93bff5cc22141a3a65de265b45b4, type: 3}
       propertyPath: m_Layer
@@ -422,6 +430,14 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 5269679168542019148, guid: 6eef93bff5cc22141a3a65de265b45b4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5292437869360679424, guid: 6eef93bff5cc22141a3a65de265b45b4, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5411051151015226080, guid: 6eef93bff5cc22141a3a65de265b45b4, type: 3}
       propertyPath: m_Layer
       value: 6
@@ -429,6 +445,10 @@ PrefabInstance:
     - target: {fileID: 5566731051347886230, guid: 6eef93bff5cc22141a3a65de265b45b4, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5780575131751375537, guid: 6eef93bff5cc22141a3a65de265b45b4, type: 3}
+      propertyPath: m_Mesh
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6349670307369611867, guid: 6eef93bff5cc22141a3a65de265b45b4, type: 3}
       propertyPath: m_Layer
@@ -547,6 +567,21 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 7193627671952180793}
   m_SourcePrefab: {fileID: 100100000, guid: 6eef93bff5cc22141a3a65de265b45b4, type: 3}
+--- !u!137 &813158238496736523 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 6131397253440757690, guid: 6eef93bff5cc22141a3a65de265b45b4, type: 3}
+  m_PrefabInstance: {fileID: 6800420375078607537}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &992781155523222393 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 6023814633948332488, guid: 6eef93bff5cc22141a3a65de265b45b4, type: 3}
+  m_PrefabInstance: {fileID: 6800420375078607537}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &1037877651309393920 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 5780575131751375537, guid: 6eef93bff5cc22141a3a65de265b45b4, type: 3}
+  m_PrefabInstance: {fileID: 6800420375078607537}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1415454924497137636 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5619162527886292309, guid: 6eef93bff5cc22141a3a65de265b45b4, type: 3}
@@ -558,6 +593,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06a6ea9075006ff44b671a5843ad24ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!137 &1552455822208911366 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 5464163863523775159, guid: 6eef93bff5cc22141a3a65de265b45b4, type: 3}
+  m_PrefabInstance: {fileID: 6800420375078607537}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &1670121322861170865 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 5292437869360679424, guid: 6eef93bff5cc22141a3a65de265b45b4, type: 3}
+  m_PrefabInstance: {fileID: 6800420375078607537}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2630474865259176383 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8853690659484105486, guid: 6eef93bff5cc22141a3a65de265b45b4, type: 3}
@@ -576,6 +621,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityMovement: {fileID: 11400000, guid: fd1b20b39f87ab44d99446aefcdcda08, type: 2}
+  entityEquipment: {fileID: 11400000, guid: 57b5f6f56f035624f88a51ade6cff0df, type: 2}
 --- !u!114 &5139100513368108457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -588,9 +634,142 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcb9773ff3b0e9e4889069139480118d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 6691461836187768127}
+    - {fileID: 4627192607856407649}
+    - {fileID: 1552455822208911366}
+    - {fileID: 813158238496736523}
+    - {fileID: 992781155523222393}
+    - {fileID: 1037877651309393920}
+    - {fileID: 1670121322861170865}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: modelsPerCategory
+      Entry: 7
+      Data: 0|System.Collections.Generic.Dictionary`2[[mpw.InventorySystem.EquipmentCategory,
+        MyPocketWorld],[UnityEngine.SkinnedMeshRenderer, UnityEngine.CoreModule]],
+        mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 1|System.Collections.Generic.EnumEqualityComparer`1[[mpw.InventorySystem.EquipmentCategory,
+        MyPocketWorld]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 7
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 0
+    - Name: $v
+      Entry: 10
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 1
+    - Name: $v
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 2
+    - Name: $v
+      Entry: 10
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 3
+    - Name: $v
+      Entry: 10
+      Data: 3
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 4
+    - Name: $v
+      Entry: 10
+      Data: 4
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 5
+    - Name: $v
+      Entry: 10
+      Data: 5
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 6
+    - Name: $v
+      Entry: 10
+      Data: 6
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
   bodyTransform: {fileID: 4695972283549997630}
   controller: {fileID: 7193627671952180793}
   inventory: {fileID: 1415454924497137636}
+  startingEquipmentTest: {fileID: 11400000, guid: de340046eaa04184a80400339a1f0a76, type: 2}
+--- !u!137 &4627192607856407649 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 2191253437339643600, guid: 6eef93bff5cc22141a3a65de265b45b4, type: 3}
+  m_PrefabInstance: {fileID: 6800420375078607537}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4695972283549997630 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2266581254347440271, guid: 6eef93bff5cc22141a3a65de265b45b4, type: 3}
@@ -626,3 +805,8 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0.58, z: 0}
+--- !u!137 &6691461836187768127 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 181036081040166798, guid: 6eef93bff5cc22141a3a65de265b45b4, type: 3}
+  m_PrefabInstance: {fileID: 6800420375078607537}
+  m_PrefabAsset: {fileID: 0}

@@ -8,14 +8,18 @@ namespace mpw.Entity
     {
         #region variables
         [TabGroup("Tab", "Components"), SerializeField] private Entity_Movement entityMovement;
+        [TabGroup("Tab", "Components"), SerializeField] private Entity_Equipment entityEquipment;
+
         private EntityReferences references;
         private readonly List<EntityComponent.EntityComponentData> componentsData = new();
 
         public EntityReferences References => references ? references : references = GetComponent<EntityReferences>();
 
         private Entity_Movement.EntityMovementData m_Movement;
+        private Entity_Equipment.Entity_EquipmentData m_Equipment;
 
         public Entity_Movement.EntityMovementData Movement => m_Movement;
+        public Entity_Equipment.Entity_EquipmentData Equipment => m_Equipment;
         #endregion
         #region Behaviour
         int i;
@@ -63,6 +67,7 @@ namespace mpw.Entity
         protected void HandleComponentsInnit() 
         {
             HandleCreateComponentData(ref m_Movement, entityMovement);
+            HandleCreateComponentData(ref m_Equipment, entityEquipment);
         }
         //void HandleMultiplayerComponentsInnit() { } TO DO: When implementing multiplayer sync
         #endregion

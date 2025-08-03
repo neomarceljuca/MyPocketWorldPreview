@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 61c76ae9c85b2c249a627cf599a9a7e0, type: 3}
-  m_Name: Equipment_Hair_SpikyShort
+  m_Name: Equipment_Top_BasicShirt
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -21,9 +21,11 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  displayName: Spiky Short
+  displayName: Shirt Basic
   icon: {fileID: 21300000, guid: ae8a6c0e1d34d0f4abab164699160699, type: 3}
-  price: 12
+  price: 10
   maxStack: 1
-  model: {fileID: 919132149155446097, guid: 0f970e43a3da4474abd8de0ec845cb38, type: 3}
-  defaultColor: {r: 0.26415092, g: 0.22054109, b: 0.22054109, a: 1}
+  category: 4
+  mesh: {fileID: -1716110407043338123, guid: f34902adbfbde794fb1c199b0505c8bc, type: 3}
+  defaultColor: {r: 1, g: 1, b: 1, a: 1}
+  material: {fileID: 2100000, guid: 25dc0484b6dc09d41bed185c1b5f6bc0, type: 2}

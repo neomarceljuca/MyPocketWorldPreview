@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 61c76ae9c85b2c249a627cf599a9a7e0, type: 3}
-  m_Name: Equipment_Hair_Long
+  m_Name: Equipment_Bottom_Pants2
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -21,9 +21,11 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  displayName: Long Hair
+  displayName: Pants2
   icon: {fileID: 21300000, guid: ae8a6c0e1d34d0f4abab164699160699, type: 3}
-  price: 12
+  price: 10
   maxStack: 1
-  model: {fileID: 919132149155446097, guid: 2c191350d02032d4da4ac04c80416174, type: 3}
-  defaultColor: {r: 0.26415092, g: 0.22054109, b: 0.22054109, a: 1}
+  category: 5
+  mesh: {fileID: -5768860637884414165, guid: 7beff93e97437a1418caba3e75662a16, type: 3}
+  defaultColor: {r: 1, g: 1, b: 1, a: 1}
+  material: {fileID: 2100000, guid: f36cba6e0f491a74190580aee66003aa, type: 2}
