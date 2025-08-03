@@ -29,3 +29,6 @@ MonoBehaviour:
   mesh: {fileID: 0}
   defaultColor: {r: 0.4339623, g: 0.28862587, b: 0.28862587, a: 1}
   material: {fileID: 2100000, guid: dcc55f0dba0ee15499ba334a3371aa3b, type: 2}
+  textureOffset:
+    x: 0
+    y: 0

@@ -56,16 +56,20 @@ namespace mpw.Entity
             void SetSocket(EquipmentParameters parameters) 
             {
                 SkinnedMeshRenderer targetMeshRenderer = Entity.References.ModelsPerCategory[parameters.Category];
-                targetMeshRenderer.sharedMesh = parameters.Mesh;
-
-                if (parameters.Material != null) 
+                if (parameters.Material != null)
                 {
                     targetMeshRenderer.material = parameters.Material;
                     //to do: apply stored instance data instead
                     targetMeshRenderer.material.SetColor("_mainColor", parameters.DefaultColor); // Show flat color
-
                 }
-
+                if (parameters.IsOffSetTexture)
+                {
+                    targetMeshRenderer.material.SetVector("_offset", new(parameters.TextureOffset.x, parameters.TextureOffset.y));
+                }
+                else 
+                {
+                    targetMeshRenderer.sharedMesh = parameters.Mesh;
+                }   
             }
         }
 
