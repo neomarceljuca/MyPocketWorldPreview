@@ -12,7 +12,7 @@ namespace mpw.InventorySystem
         [BoxGroup("Equipment"), SerializeField] private Material material;
         [BoxGroup("Equipment"), ShowIf("IsOffSetTexture"), SerializeField] Vector2Slider textureOffset;
 
-
+        public override Sprite DisplayIcon => iconOverride == null? MPWApp.Instance.MpwResources.GetSocketSprite(category) : iconOverride;
         public Mesh Mesh => mesh;
         public Color DefaultColor => defaultColor;
         public EquipmentCategory Category => category;

@@ -7,12 +7,12 @@ namespace mpw.InventorySystem
     public class ItemParameters : SerializedScriptableObject
     {
         [SerializeField] private string displayName;
-        [SerializeField] private Sprite icon;
+        [SerializeField] protected Sprite iconOverride;
         [SerializeField] private float price;
         [SerializeField] private int maxStack = 1;
 
         public string DisplayName => displayName;
-        public Sprite Icon => icon;
+        public virtual Sprite DisplayIcon => iconOverride;
         public float Price => price;
         public int MaxStack => maxStack;
 

@@ -17,6 +17,8 @@ namespace mpw.Entity
             private Entity_PlayerMovement parameters;
             public new Entity_PlayerMovement Parameters => parameters;
 
+            public bool InputBlocked;
+
             #region Behaviour
             public override void Start()
             {
@@ -31,10 +33,13 @@ namespace mpw.Entity
             #region Utilities
             protected override void HandleMovement()
             {
-                float horizontal = Input.GetAxis("Horizontal");
-                float vertical = Input.GetAxis("Vertical");
+                if (!InputBlocked)
+                {
+                    float horizontal = Input.GetAxis("Horizontal");
+                    float vertical = Input.GetAxis("Vertical");
 
-                movementDirection = new Vector3(horizontal, 0, vertical).normalized;
+                    movementDirection = new Vector3(horizontal, 0, vertical).normalized;
+                }
                 base.HandleMovement();
             }
             #endregion

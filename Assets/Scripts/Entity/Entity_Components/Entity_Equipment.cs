@@ -9,7 +9,7 @@ namespace mpw.Entity
     public class Entity_Equipment : EntityComponent
     {
         public override EntityComponentData BuildComponent(Entity entity) => new Entity_EquipmentData(entity, this);
-        public class Entity_EquipmentData: EntityComponentData 
+        public class Entity_EquipmentData : EntityComponentData
         {
             public Entity_EquipmentData(Entity entity, Entity_Equipment parameters) : base(entity)
             {
@@ -21,6 +21,7 @@ namespace mpw.Entity
             #region variables
             Dictionary<EquipmentCategory, EquipmentParameters> equipped = new();
 
+            public Dictionary<EquipmentCategory, EquipmentParameters> Equipped => equipped;
             #endregion
 
             public override void Start()
@@ -29,31 +30,42 @@ namespace mpw.Entity
                 Innit();
             }
 
-            public void Innit() 
+            public void Innit()
             {
-                foreach (var equip in Entity.References.StartingEquipmentTest.Items)
+                if (Entity.References.StartingEquipmentTest != null)
                 {
-                    EquipItem(equip as EquipmentParameters);
-                }
 
+                    foreach (var equip in Entity.References.StartingEquipmentTest.Items)
+                    {
+                        EquipItem(equip as EquipmentParameters);
+                    }
+                }
                 RefreshEquipment();
             }
 
-            public void RefreshEquipment() 
+            public void RefreshEquipment()
             {
-                foreach (var item in equipped) 
+                foreach (var item in equipped)
                 {
                     SetSocket(item.Value);
                 }
             }
 
-            public void EquipItem(EquipmentParameters parameters) 
+            public void CopyLoadout(Entity_EquipmentData otherEntityEquipmentData) 
+            {
+                foreach(var equipment in otherEntityEquipmentData.Equipped) 
+                {
+                    EquipItem(equipment.Value);
+                }
+            }
+
+            public void EquipItem(EquipmentParameters parameters)
             {
                 equipped[parameters.Category] = parameters;
                 SetSocket(parameters);
             }
 
-            void SetSocket(EquipmentParameters parameters) 
+            void SetSocket(EquipmentParameters parameters)
             {
                 SkinnedMeshRenderer targetMeshRenderer = Entity.References.ModelsPerCategory[parameters.Category];
                 if (parameters.Material != null)
@@ -66,10 +78,10 @@ namespace mpw.Entity
                 {
                     targetMeshRenderer.material.SetVector("_offset", new(parameters.TextureOffset.x, parameters.TextureOffset.y));
                 }
-                else 
+                else
                 {
                     targetMeshRenderer.sharedMesh = parameters.Mesh;
-                }   
+                }
             }
         }
 

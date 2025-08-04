@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 5994466558171846666, guid: 6eef93bff5cc22141a3a65de265b45b4, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8853690659484105486, guid: 6eef93bff5cc22141a3a65de265b45b4, type: 3}
       propertyPath: m_Name
       value: NPC_Base

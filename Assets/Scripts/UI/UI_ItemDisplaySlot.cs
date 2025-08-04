@@ -7,23 +7,22 @@ namespace mpw.UI
 {
     public class UI_ItemDisplaySlot : UI_ItemObject
     {
+        public UI_ContainerBase container;
         public Image icon;
 
-        private void OnEnable()
-        { 
-        }
-
-        public void Setup(ItemParameters parameters) 
+        public virtual void Setup(ItemParameters parameters, UI_ContainerBase container) 
         {
             this.Parameters = parameters;
-            icon.sprite = parameters.Icon;
+            icon.sprite = parameters.DisplayIcon;
             icon.enabled = true;
+            this.container = container;
         }
 
-        public void Reset()
+        public virtual void Reset()
         {
             icon.sprite = null;
             icon.enabled = false;
+            Parameters = null;
         }
 
     }
