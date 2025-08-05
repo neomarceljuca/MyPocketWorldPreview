@@ -23,7 +23,7 @@ namespace mpw.InventorySystem
             public ItemParameters Parameters
             {
                 get => parameters;
-                set
+                protected set
                 {
                     parameters = value;
                 }

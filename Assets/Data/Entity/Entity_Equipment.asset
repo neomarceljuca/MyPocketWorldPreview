@@ -21,4 +21,4 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  startingEquipmentTest: {fileID: 11400000, guid: de340046eaa04184a80400339a1f0a76, type: 2}
+  StartingEquipment: {fileID: 11400000, guid: de340046eaa04184a80400339a1f0a76, type: 2}

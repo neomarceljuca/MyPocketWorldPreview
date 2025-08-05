@@ -1,4 +1,5 @@
 using mpw.InventorySystem;
+using Sirenix.OdinInspector;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -10,33 +11,51 @@ namespace mpw.UI
     {
         #region References
         public GridLayoutGroup mainGridDisplay;
-        public List<ItemParameters.ItemData> data;
+        public List<EquipmentParameters.EquipmentData> data;
         public List<UI_ItemDisplaySlot> displayedItemSlots;
+        [SerializeField] private ToggleGroup categoryToggleGroup;
+        public Toggle categoryStartingToggle;
         public Entity.Entity previewCharacter;
 
-        public ItemGroup test_LoadItems;
-
+        private Entity.Entity playerEntity => MPWApp.Instance.LocalPlayer;
+        private List<EquipmentParameters.EquipmentData> filteredData;
         #endregion
-        #region Behavior
 
-        public override void Show() 
-        { 
-            data = test_LoadItems.Items.Select(x => new ItemParameters.ItemData(x)).ToList();
-            foreach (var slot in displayedItemSlots)
+        #region Behavior
+        public override void Show()
+        {
+            LoadPlayerEquipment();
+            foreach (var toggle in categoryToggleGroup.GetComponentsInChildren<Toggle>())
             {
-                slot.Reset();
+                toggle.isOn = false;
             }
-            for (int i = 0; i < data.Count; i++)
-            {
-                displayedItemSlots[i].Setup(data[i].Parameters, this);
-            }
+            categoryStartingToggle.isOn = true; //Selects 'all' categories & sets up slots
             SetupPreview();
             base.Show();
         }
         #endregion
+
+        #region Utilities
+        private void SetupSlots() 
+        {
+            foreach (var slot in displayedItemSlots)
+            {
+                slot.Reset();
+            }
+            for (int i = 0; i < filteredData.Count; i++)
+            {
+                displayedItemSlots[i].Setup(filteredData[i].Parameters, this);
+            }
+        }
+        private void LoadPlayerEquipment() 
+        {
+            data = playerEntity.Equipment.Equipped.Select(x => new EquipmentParameters.EquipmentData(x.Value)).ToList();
+        }
+
         public void SetupPreview()
         {
-            previewCharacter.Equipment.CopyLoadout(MPWApp.Instance.LocalPlayer.Equipment);
+            if(playerEntity != null)
+                previewCharacter.Equipment.CopyLoadout(playerEntity.Equipment);
         }
 
         public void EquipPreview(EquipmentParameters parameters) 
@@ -44,14 +63,32 @@ namespace mpw.UI
             previewCharacter.Equipment.EquipItem(parameters);
         }
 
+        private void Internal_FilterByCategory(EquipmentCategory category) 
+        {
+            if (category == EquipmentCategory.All) filteredData = data;
+            else
+                filteredData = data.Where(x => x.Parameters.Category == category).ToList();
+        }
+
+
+
+        #endregion
+
         #region External
         public void Button_Close() => MPWApp.Instance.UIManager.ToggleUI("");
 
         public void Button_SaveChanges() 
         {
-            MPWApp.Instance.LocalPlayer.Equipment.CopyLoadout(previewCharacter.Equipment);
+            if (playerEntity != null)
+                playerEntity.Equipment.CopyLoadout(previewCharacter.Equipment);
             Button_Close();
-        } 
+        }
+
+        public void FilterByCategory(EquipmentCategory category)
+        {
+            Internal_FilterByCategory(category);
+            SetupSlots();
+        }
         #endregion
     }
 }

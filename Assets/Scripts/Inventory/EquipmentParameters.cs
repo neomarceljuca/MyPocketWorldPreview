@@ -22,7 +22,10 @@ namespace mpw.InventorySystem
         public bool IsOffSetTexture => category == EquipmentCategory.Eyes || category == EquipmentCategory.Cheeks || category == EquipmentCategory.Mouth;
         public class EquipmentData: ItemData
         {
-        
+            public new EquipmentParameters Parameters => base.Parameters as EquipmentParameters;
+
+            public EquipmentData() { }
+            public EquipmentData(EquipmentParameters parameters) : base(parameters) { }
         }
     }
 
@@ -35,7 +38,7 @@ namespace mpw.InventorySystem
         public Vector2 Value => new Vector2(x, y);
     }
 
-    [Serializable]
+    [Serializable] //to do (low prio): improve by adding Flag enums to support 'all' correctly.
     public enum EquipmentCategory 
     {
         Hair,
@@ -44,6 +47,7 @@ namespace mpw.InventorySystem
         Mouth,
         Top,
         Bottom,
-        Shoes
+        Shoes,
+        All
     }
 }

@@ -10,10 +10,10 @@ namespace mpw.Entity
         [TabGroup("Tab", "Components"), SerializeField] private Entity_Movement entityMovement;
         [TabGroup("Tab", "Components"), SerializeField] private Entity_Equipment entityEquipment;
 
-        private EntityReferences references;
+        [TabGroup("Tab", "References"), SerializeField] private EntityReferences references;
         private readonly List<EntityComponent.EntityComponentData> componentsData = new();
 
-        public EntityReferences References => references ? references : references = GetComponent<EntityReferences>();
+        public EntityReferences References => references;
 
         private Entity_Movement.EntityMovementData m_Movement;
         private Entity_Equipment.Entity_EquipmentData m_Equipment;

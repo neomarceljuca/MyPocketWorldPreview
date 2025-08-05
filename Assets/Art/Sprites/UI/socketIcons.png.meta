@@ -122,10 +122,10 @@ TextureImporter:
       name: socketIcons_1
       rect:
         serializedVersion: 2
-        x: 96
+        x: 95
         y: 111
-        width: 96
-        height: 111
+        width: 75
+        height: 84
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

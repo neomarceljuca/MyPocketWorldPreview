@@ -12,14 +12,12 @@ namespace mpw.Entity
         [SerializeField] private CharacterController controller;
         [SerializeField] private Inventory inventory;
         [SerializeField] private Dictionary<EquipmentCategory, SkinnedMeshRenderer> modelsPerCategory = new();
-
-        [Title("Testing"),SerializeField] ItemGroup startingEquipmentTest;
+        [SerializeField] ItemGroup startingEquipment;
 
         public Transform BodyTransform => bodyTransform;
         public CharacterController Controller => controller;
         public Inventory Inventory => inventory;
         public Dictionary<EquipmentCategory, SkinnedMeshRenderer> ModelsPerCategory => modelsPerCategory;
-
-        public ItemGroup StartingEquipmentTest => startingEquipmentTest;
+        public ItemGroup StartingEquipment => startingEquipment;
     }
 }

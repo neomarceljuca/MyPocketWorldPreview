@@ -32,15 +32,22 @@ namespace mpw.Entity
 
             public void Innit()
             {
-                if (Entity.References.StartingEquipmentTest != null)
+                ItemGroup equipmentToBeLoaded = null;
+                //to do: Load equipment from stored data
+
+                if (equipmentToBeLoaded == null) 
+                {
+                    equipmentToBeLoaded = Entity.References.StartingEquipment;
+                }
+
+                if (equipmentToBeLoaded != null)
                 {
 
-                    foreach (var equip in Entity.References.StartingEquipmentTest.Items)
+                    foreach (var equip in equipmentToBeLoaded.Items)
                     {
                         EquipItem(equip as EquipmentParameters);
                     }
                 }
-                RefreshEquipment();
             }
 
             public void RefreshEquipment()
