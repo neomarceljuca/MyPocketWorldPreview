@@ -10,10 +10,10 @@ namespace mpw.UI
         public UI_ContainerBase container;
         public Image icon;
 
-        public virtual void Setup(ItemParameters parameters, UI_ContainerBase container) 
+        public virtual void Setup(ItemParameters.ItemData Data, UI_ContainerBase container) 
         {
-            this.Parameters = parameters;
-            icon.sprite = parameters.DisplayIcon;
+            this.Data = Data;
+            icon.sprite = Data.Parameters.DisplayIcon;
             icon.enabled = true;
             this.container = container;
         }
@@ -22,7 +22,7 @@ namespace mpw.UI
         {
             icon.sprite = null;
             icon.enabled = false;
-            Parameters = null;
+            Data = null;
         }
 
     }

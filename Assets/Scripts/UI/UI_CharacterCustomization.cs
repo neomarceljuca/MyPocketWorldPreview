@@ -12,7 +12,7 @@ namespace mpw.UI
         #region References
         public GridLayoutGroup mainGridDisplay;
         public List<EquipmentParameters.EquipmentData> data;
-        public List<UI_ItemDisplaySlot> displayedItemSlots;
+        public List<UI_CustomizationSlotButton> displayedItemSlots;
         [SerializeField] private ToggleGroup categoryToggleGroup;
         public Toggle categoryStartingToggle;
         public Entity.Entity previewCharacter;
@@ -44,12 +44,15 @@ namespace mpw.UI
             }
             for (int i = 0; i < filteredData.Count; i++)
             {
-                displayedItemSlots[i].Setup(filteredData[i].Parameters, this);
+                displayedItemSlots[i].Setup(filteredData[i], this, previewCharacter);
             }
         }
         private void LoadPlayerEquipment() 
         {
-            data = playerEntity.Equipment.Equipped.Select(x => new EquipmentParameters.EquipmentData(x.Value)).ToList();
+            List<EquipmentParameters.EquipmentData> totalData = new();
+            totalData.AddRange(playerEntity.Equipment.Equipped.Select(x => x.Value).ToList());
+            totalData.AddRange(playerEntity.References.Inventory.Data.Select(x => x as EquipmentParameters.EquipmentData).ToList());
+            data = totalData;
         }
 
         public void SetupPreview()
@@ -58,9 +61,15 @@ namespace mpw.UI
                 previewCharacter.Equipment.CopyLoadout(playerEntity.Equipment);
         }
 
-        public void EquipPreview(EquipmentParameters parameters) 
+        public void EquipPreview(EquipmentParameters.EquipmentData data) 
         {
-            previewCharacter.Equipment.EquipItem(parameters);
+            previewCharacter.Equipment.EquipItem(data);
+        }
+
+        public void PaintEquipment(EquipmentParameters.EquipmentData data, Color color) 
+        {
+            data.ColorData = color;
+            EquipPreview(data);
         }
 
         private void Internal_FilterByCategory(EquipmentCategory category) 
@@ -69,9 +78,6 @@ namespace mpw.UI
             else
                 filteredData = data.Where(x => x.Parameters.Category == category).ToList();
         }
-
-
-
         #endregion
 
         #region External

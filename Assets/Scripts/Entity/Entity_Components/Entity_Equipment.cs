@@ -19,9 +19,9 @@ namespace mpw.Entity
             public Entity_Equipment Parameters => parameters;
 
             #region variables
-            Dictionary<EquipmentCategory, EquipmentParameters> equipped = new();
+            Dictionary<EquipmentCategory, EquipmentParameters.EquipmentData> equipped = new();
 
-            public Dictionary<EquipmentCategory, EquipmentParameters> Equipped => equipped;
+            public Dictionary<EquipmentCategory, EquipmentParameters.EquipmentData> Equipped => equipped;
             #endregion
 
             public override void Start()
@@ -35,7 +35,7 @@ namespace mpw.Entity
                 ItemGroup equipmentToBeLoaded = null;
                 //to do: Load equipment from stored data
 
-                if (equipmentToBeLoaded == null) 
+                if (equipmentToBeLoaded == null)
                 {
                     equipmentToBeLoaded = Entity.References.StartingEquipment;
                 }
@@ -58,9 +58,9 @@ namespace mpw.Entity
                 }
             }
 
-            public void CopyLoadout(Entity_EquipmentData otherEntityEquipmentData) 
+            public void CopyLoadout(Entity_EquipmentData otherEntityEquipmentData)
             {
-                foreach(var equipment in otherEntityEquipmentData.Equipped) 
+                foreach (var equipment in otherEntityEquipmentData.Equipped)
                 {
                     EquipItem(equipment.Value);
                 }
@@ -68,29 +68,38 @@ namespace mpw.Entity
 
             public void EquipItem(EquipmentParameters parameters)
             {
-                equipped[parameters.Category] = parameters;
-                SetSocket(parameters);
+                EquipItem(parameters.DefaultItemData as EquipmentParameters.EquipmentData);
+            }
+            public void EquipItem(EquipmentParameters.EquipmentData data)
+            {
+                equipped[data.Parameters.Category] = data;
+                SetSocket(data);
             }
 
-            void SetSocket(EquipmentParameters parameters)
+            void SetSocket(EquipmentParameters.EquipmentData data)
             {
-                SkinnedMeshRenderer targetMeshRenderer = Entity.References.ModelsPerCategory[parameters.Category];
-                if (parameters.Material != null)
+                SkinnedMeshRenderer targetMeshRenderer = Entity.References.ModelsPerCategory[data.Parameters.Category];
+                if (data.Parameters.Material != null)
                 {
-                    targetMeshRenderer.material = parameters.Material;
-                    //to do: apply stored instance data instead
-                    targetMeshRenderer.material.SetColor("_mainColor", parameters.DefaultColor); // Show flat color
+                    targetMeshRenderer.material = data.Parameters.Material;
+                    targetMeshRenderer.material.SetColor("_mainColor", data.ColorData); // Show flat color
                 }
-                if (parameters.IsOffSetTexture)
+                if (data.Parameters.IsOffSetTexture)
                 {
-                    targetMeshRenderer.material.SetVector("_offset", new(parameters.TextureOffset.x, parameters.TextureOffset.y));
+                    targetMeshRenderer.material.SetVector("_offset", new(data.Parameters.TextureOffset.x, data.Parameters.TextureOffset.y));
                 }
                 else
                 {
-                    targetMeshRenderer.sharedMesh = parameters.Mesh;
+                    targetMeshRenderer.sharedMesh = data.Parameters.Mesh;
                 }
             }
-        }
 
+            public bool isEquipping(EquipmentParameters.EquipmentData data) 
+            {
+                return equipped.ContainsValue(data);
+
+            }
+
+        }
     }
 }

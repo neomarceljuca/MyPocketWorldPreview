@@ -5,6 +5,6 @@ namespace mpw.UI
 {
     public class UI_ItemObject : MonoBehaviour
     {
-        public ItemParameters Parameters;
+        public ItemParameters.ItemData Data;
     }
 }

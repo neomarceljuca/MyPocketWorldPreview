@@ -517,6 +517,7 @@ MonoBehaviour:
   controller: {fileID: 7193627671952180793}
   inventory: {fileID: 1415454924497137636}
   startingEquipment: {fileID: 11400000, guid: de340046eaa04184a80400339a1f0a76, type: 2}
+  startingInventory: {fileID: 11400000, guid: ab39275e087485a4a8a4274b54419f80, type: 2}
 --- !u!137 &4627192607856407649 stripped
 SkinnedMeshRenderer:
   m_CorrespondingSourceObject: {fileID: 2191253437339643600, guid: 6eef93bff5cc22141a3a65de265b45b4, type: 3}

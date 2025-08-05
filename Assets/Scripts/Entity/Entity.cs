@@ -20,6 +20,10 @@ namespace mpw.Entity
 
         public Entity_Movement.EntityMovementData Movement => m_Movement;
         public Entity_Equipment.Entity_EquipmentData Equipment => m_Equipment;
+
+        private bool isLocalPlayer;
+
+        public bool IsLocalPlayer => isLocalPlayer;
         #endregion
         #region Behaviour
         int i;
@@ -31,6 +35,12 @@ namespace mpw.Entity
         void Start()
         {
             StartEntity();
+        }
+
+        public void Innit(bool localPlayer = false) 
+        {
+            isLocalPlayer = localPlayer;
+            if (IsLocalPlayer) References.Inventory.Innit(References.StartingInventory);
         }
 
         public virtual void StartEntity()

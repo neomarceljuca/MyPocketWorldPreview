@@ -20,12 +20,30 @@ namespace mpw.InventorySystem
         public Vector2 TextureOffset => textureOffset.Value;
 
         public bool IsOffSetTexture => category == EquipmentCategory.Eyes || category == EquipmentCategory.Cheeks || category == EquipmentCategory.Mouth;
-        public class EquipmentData: ItemData
+        public override ItemData DefaultItemData => new EquipmentData(this);
+        public class EquipmentData : ItemData
         {
+            private Color colorData;
+
             public new EquipmentParameters Parameters => base.Parameters as EquipmentParameters;
 
+            public Color ColorData
+            {
+                get
+                {
+                    return colorData;
+                }
+                set
+                {
+                    colorData = value;
+                }
+            }
+
             public EquipmentData() { }
-            public EquipmentData(EquipmentParameters parameters) : base(parameters) { }
+            public EquipmentData(EquipmentParameters parameters) : base(parameters) 
+            {
+                colorData = parameters.DefaultColor;
+            }
         }
     }
 

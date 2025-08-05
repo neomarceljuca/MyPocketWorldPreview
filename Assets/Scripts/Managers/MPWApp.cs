@@ -36,5 +36,6 @@ public class MPWApp : MonoBehaviour
     void InnitPlayer() 
     {
         localPlayer = Instantiate(playerPrefab).GetComponent<Entity>();
+        localPlayer.Innit(true);
     }
 }

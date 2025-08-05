@@ -8,8 +8,8 @@ namespace mpw.UI
         [SerializeField] UI_ItemObject _itemObject;
         public override void OnPointerEnter(PointerEventData eventData)
         {
-            if (_itemObject == null || _itemObject.Parameters == null) return;
-            tooltipText = _itemObject.Parameters.DisplayName;
+            if (_itemObject == null || _itemObject.Data == null) return;
+            tooltipText = _itemObject.Data.Parameters.DisplayName;
             base.OnPointerEnter(eventData);
         }
     }

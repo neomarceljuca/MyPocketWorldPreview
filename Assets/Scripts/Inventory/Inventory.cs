@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 
 namespace mpw.InventorySystem
@@ -7,5 +8,10 @@ namespace mpw.InventorySystem
         protected ItemParameters.ItemData[] data;
 
         public ItemParameters.ItemData[] Data => data;
+
+        public void Innit(ItemGroup items) 
+        {
+            data = items.Items.Select(x => x.DefaultItemData).ToArray();
+        }
     }
 }

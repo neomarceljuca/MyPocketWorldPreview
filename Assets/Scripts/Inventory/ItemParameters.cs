@@ -16,6 +16,7 @@ namespace mpw.InventorySystem
         public float Price => price;
         public int MaxStack => maxStack;
 
+        public virtual ItemData DefaultItemData => new(this);
         public class ItemData 
         {
             private ItemParameters parameters;
