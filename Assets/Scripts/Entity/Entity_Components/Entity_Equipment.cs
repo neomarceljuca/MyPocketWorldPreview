@@ -2,6 +2,7 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 using mpw.InventorySystem;
 using System.Collections.Generic;
+using mpw.Multiplayer;
 
 namespace mpw.Entity
 {
@@ -79,19 +80,11 @@ namespace mpw.Entity
             void SetSocket(EquipmentParameters.EquipmentData data)
             {
                 SkinnedMeshRenderer targetMeshRenderer = Entity.References.ModelsPerCategory[data.Parameters.Category];
-                if (data.Parameters.Material != null)
+                NetworkEquipment networkEquipment = targetMeshRenderer.GetComponent<NetworkEquipment>();
+                if (networkEquipment != null) 
                 {
-                    targetMeshRenderer.material = data.Parameters.Material;
-                    targetMeshRenderer.material.SetColor("_mainColor", data.ColorData); // Show flat color
-                }
-                if (data.Parameters.IsOffSetTexture)
-                {
-                    targetMeshRenderer.material.SetVector("_offset", new(data.Parameters.TextureOffset.x, data.Parameters.TextureOffset.y));
-                }
-                else
-                {
-                    targetMeshRenderer.sharedMesh = data.Parameters.Mesh;
-                }
+                    networkEquipment.Equip(data.Parameters, Entity.IsNPC);
+                }    
             }
 
             public bool isEquipping(EquipmentParameters.EquipmentData data) 

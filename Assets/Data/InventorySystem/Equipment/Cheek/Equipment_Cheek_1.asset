@@ -22,11 +22,11 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   displayName: Base Cheek 1
-  icon: {fileID: 21300000, guid: ae8a6c0e1d34d0f4abab164699160699, type: 3}
+  iconOverride: {fileID: 0}
   price: 10
   maxStack: 1
   category: 2
-  mesh: {fileID: 0}
+  mesh: {fileID: 6318000105373616581, guid: c1d82f755fdad724abf19ae9beed1056, type: 3}
   defaultColor: {r: 0.4339623, g: 0.28862587, b: 0.28862587, a: 1}
   material: {fileID: 2100000, guid: dcc55f0dba0ee15499ba334a3371aa3b, type: 2}
   textureOffset:

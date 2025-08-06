@@ -9,7 +9,7 @@ namespace mpw.Utils
     public class MpwResources : SerializedScriptableObject
     {
         [SerializeField] Dictionary<EquipmentCategory, Sprite> defaultIconPerSocket = new();
-
+        public EquipmentDatabase EquipmentDatabase;
         public Sprite GetSocketSprite(EquipmentCategory category) => defaultIconPerSocket[category];
     }
 }

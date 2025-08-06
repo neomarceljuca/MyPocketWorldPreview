@@ -138,3 +138,4 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+  EquipmentDatabase: {fileID: 11400000, guid: e32b2e30c5292b9468c49982ef078e0e, type: 2}

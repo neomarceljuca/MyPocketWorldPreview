@@ -12,12 +12,13 @@ namespace mpw.Entity
         [TabGroup("Tab", "Components"), SerializeField] private Entity_Equipment entityEquipment;
 
         [TabGroup("Tab", "References"), SerializeField] private EntityReferences references;
-        [TabGroup("Tab", "Setup"), SerializeField] private bool ignoreStartup;
+        [TabGroup("Tab", "Setup"), SerializeField] private bool isNPC;
 
 
         private readonly List<EntityComponent.EntityComponentData> componentsData = new();
 
         public EntityReferences References => references;
+        public bool IsNPC => isNPC;
 
         private Entity_Movement.EntityMovementData m_Movement;
         private Entity_Equipment.Entity_EquipmentData m_Equipment;
@@ -38,7 +39,7 @@ namespace mpw.Entity
 
         void Start()
         {
-            if(!ignoreStartup)
+            if(!isNPC)
                 MultiplayerSetup();
             StartEntity();
         }

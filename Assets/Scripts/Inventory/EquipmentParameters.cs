@@ -7,7 +7,7 @@ namespace mpw.InventorySystem
     public class EquipmentParameters : ItemParameters
     {
         [BoxGroup("Equipment"), SerializeField] private EquipmentCategory category;
-        [BoxGroup("Equipment"), HideIf("IsOffSetTexture"), SerializeField] private Mesh mesh;
+        [BoxGroup("Equipment"), SerializeField] private Mesh mesh;
         [BoxGroup("Equipment"), SerializeField] private Color defaultColor;
         [BoxGroup("Equipment"), SerializeField] private Material material;
         [BoxGroup("Equipment"), ShowIf("IsOffSetTexture"), SerializeField] Vector2Slider textureOffset;

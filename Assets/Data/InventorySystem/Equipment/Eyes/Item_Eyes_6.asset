@@ -22,11 +22,11 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   displayName: Eyes 6
-  icon: {fileID: 21300000, guid: ae8a6c0e1d34d0f4abab164699160699, type: 3}
+  iconOverride: {fileID: 0}
   price: 5
   maxStack: 1
   category: 1
-  mesh: {fileID: 0}
+  mesh: {fileID: -7436983501766067125, guid: c1d82f755fdad724abf19ae9beed1056, type: 3}
   defaultColor: {r: 1, g: 1, b: 1, a: 1}
   material: {fileID: 2100000, guid: 4217e276b0e2bf847b2d366d6ef701cf, type: 2}
   textureOffset:
