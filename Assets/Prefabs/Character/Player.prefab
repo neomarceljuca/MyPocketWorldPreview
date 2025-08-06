@@ -333,7 +333,7 @@ PrefabInstance:
       addedObject: {fileID: 5481523968218205822}
     - targetCorrespondingSourceObject: {fileID: 1458976101559704117, guid: 6eef93bff5cc22141a3a65de265b45b4, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 4642851068221870744}
+      addedObject: {fileID: 2858761975361705272}
   m_SourcePrefab: {fileID: 100100000, guid: 6eef93bff5cc22141a3a65de265b45b4, type: 3}
 --- !u!137 &813158238496736523 stripped
 SkinnedMeshRenderer:
@@ -531,8 +531,8 @@ MonoBehaviour:
       Entry: 8
       Data: 
   bodyTransform: {fileID: 4695972283549997630}
-  controller: {fileID: 7193627671952180793}
   inventory: {fileID: 1415454924497137636}
+  networkController: {fileID: 2858761975361705272}
   startingEquipment: {fileID: 11400000, guid: de340046eaa04184a80400339a1f0a76, type: 2}
   startingInventory: {fileID: 11400000, guid: ab39275e087485a4a8a4274b54419f80, type: 2}
 --- !u!114 &8437011431829402326
@@ -630,12 +630,12 @@ MonoBehaviour:
   SyncPositionX: 1
   SyncPositionY: 1
   SyncPositionZ: 1
-  SyncRotAngleX: 1
+  SyncRotAngleX: 0
   SyncRotAngleY: 1
-  SyncRotAngleZ: 1
-  SyncScaleX: 1
-  SyncScaleY: 1
-  SyncScaleZ: 1
+  SyncRotAngleZ: 0
+  SyncScaleX: 0
+  SyncScaleY: 0
+  SyncScaleZ: 0
   PositionThreshold: 0.001
   RotAngleThreshold: 0.01
   ScaleThreshold: 0.01
@@ -646,7 +646,7 @@ MonoBehaviour:
   SwitchTransformSpaceWhenParented: 0
   Interpolate: 1
   SlerpPosition: 0
---- !u!114 &4642851068221870744
+--- !u!114 &2858761975361705272
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -655,11 +655,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 5359460877628309636}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 455521db0066b4b4280c34d2fdba6763, type: 3}
+  m_Script: {fileID: 11500000, guid: 5c9f843db369022468a861e5db9f4c63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ShowTopMostFoldoutHeaderGroup: 1
-  Speed: 3
+  controller: {fileID: 7193627671952180793}
 --- !u!137 &6691461836187768127 stripped
 SkinnedMeshRenderer:
   m_CorrespondingSourceObject: {fileID: 181036081040166798, guid: 6eef93bff5cc22141a3a65de265b45b4, type: 3}

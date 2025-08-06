@@ -1,3 +1,4 @@
+using mpw.Multiplayer;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -20,30 +21,17 @@ namespace mpw.Entity
 
             #region variables
             protected Vector3 movementDirection; //for controlling rotation and getting base input
-            private Vector3 deltaMoveDirection; //for calculated movement After Gravity
-            protected Transform targetTransform;
-            protected CharacterController controller;
-            private Vector3 simulatedGravity = Vector3.down * 9.81f;
             #endregion
             #region Behaviour
             public override void Start()
             {
-                base.Start();
-                controller = Entity.References.Controller;
-                targetTransform = Entity.References.BodyTransform;
+                base.Start();     
             }
             #endregion
             #region Utilities
             protected virtual void HandleMovement()
             {
-                deltaMoveDirection = movementDirection * Parameters.baseSpeed;
-
-                if (movementDirection != Vector3.zero)
-                    targetTransform.rotation = Quaternion.LookRotation(movementDirection);
-
-                if (!controller.isGrounded)
-                    deltaMoveDirection += simulatedGravity;
-                controller.Move(deltaMoveDirection  * Time.deltaTime);
+                Entity.References.NetworkController.HandleMovement(movementDirection, Parameters.baseSpeed);
             }
             #endregion
         }

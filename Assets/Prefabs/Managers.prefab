@@ -31,6 +31,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2055484079857992289}
+  - {fileID: 1467700267096354948}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &9014881081304470957
@@ -46,8 +47,52 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_UIManager: {fileID: 4888799327162667302}
-  playerPrefab: {fileID: 2630474865259176383, guid: e6f65acee62976649ac603129c02b696, type: 3}
+  m_SessionManager: {fileID: 0}
   mpwResources: {fileID: 11400000, guid: e2ea797446b948c49919271c86557094, type: 2}
+--- !u!1 &2450516071837653246
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1467700267096354948}
+  - component: {fileID: 5544244698066890597}
+  m_Layer: 0
+  m_Name: MPWSessionManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1467700267096354948
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2450516071837653246}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6995652057310852075}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5544244698066890597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2450516071837653246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18623e78343acbe4d97de0f79cdb570d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6528398622184057330
 GameObject:
   m_ObjectHideFlags: 0
@@ -96,4 +141,5 @@ MonoBehaviour:
   tooltipHolder: {fileID: 0}
   tooltipBaseObject: {fileID: 2568795930182418585, guid: 73b1ea3471400664b8074d854d7085fe, type: 3}
   CustomizationPanel: {fileID: 0}
+  UI_MultiplayerLobby: {fileID: 0}
   MainCanvas: {fileID: 0}
