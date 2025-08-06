@@ -33,14 +33,14 @@ namespace mpw.Entity
             #region Utilities
             protected override void HandleMovement()
             {
-                if (!InputBlocked)
-                {
-                    float horizontal = Input.GetAxis("Horizontal");
-                    float vertical = Input.GetAxis("Vertical");
+                //if (!InputBlocked)
+                //{
+                //    float horizontal = Input.GetAxis("Horizontal");
+                //    float vertical = Input.GetAxis("Vertical");
 
-                    movementDirection = new Vector3(horizontal, 0, vertical).normalized;
-                }
-                base.HandleMovement();
+                //    movementDirection = new Vector3(horizontal, 0, vertical).normalized;
+                //}
+                //base.HandleMovement();
             }
             #endregion
         }

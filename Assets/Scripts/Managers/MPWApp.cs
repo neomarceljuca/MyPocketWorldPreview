@@ -1,41 +1,33 @@
 using mpw.Entity;
 using mpw.UI;
 using mpw.Utils;
+using mpw.Multiplayer;
 using UnityEngine;
 
-public class MPWApp : MonoBehaviour
+public class MPWApp : Singleton<MPWApp>
 {
-    public static MPWApp Instance;
 
     [SerializeField] private UIManager m_UIManager;
-    [SerializeField] private GameObject playerPrefab;
+    [SerializeField] private MPWSessionManager m_SessionManager;
 
     [SerializeField] private MpwResources mpwResources;
 
     public UIManager UIManager => m_UIManager;
+    public MPWSessionManager SessionManager => m_SessionManager;
 
     public Entity LocalPlayer => localPlayer;
     public MpwResources MpwResources => mpwResources;
 
     private Entity localPlayer;
 
-    void Awake()
+    protected override void Awake()
     {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject); 
-            return;
-        }
-
-        Instance = this;
-        DontDestroyOnLoad(gameObject);
-
-        InnitPlayer();
+        base.Awake();
+        //InnitPlayer();
     }
 
     void InnitPlayer() 
     {
-        localPlayer = Instantiate(playerPrefab).GetComponent<Entity>();
         localPlayer.Innit(true);
     }
 }
