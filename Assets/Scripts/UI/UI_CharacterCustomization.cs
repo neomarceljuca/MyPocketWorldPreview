@@ -85,9 +85,18 @@ namespace mpw.UI
 
         public void Button_SaveChanges() 
         {
-            if (playerEntity != null)
-                playerEntity.Equipment.CopyLoadout(previewCharacter.Equipment);
+            if (playerEntity != null) UpdateInventory();
             Button_Close();
+        }
+
+        public void UpdateInventory() 
+        {
+            foreach(var item in previewCharacter.Equipment.Equipped.Select(x => x.Value)) 
+            {
+                if(data.Contains(item)) data.Remove(item);
+            }
+            playerEntity.Equipment.CopyLoadout(previewCharacter.Equipment);
+            playerEntity.References.Inventory.InnitData(data.ToArray());
         }
 
         public void FilterByCategory(EquipmentCategory category)
