@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 61c76ae9c85b2c249a627cf599a9a7e0, type: 3}
-  m_Name: Equipment_Hair_SpikyShort
+  m_Name: Equipment_Top_LongSleeve2
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -21,14 +21,14 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  displayName: Spiky Short
+  displayName: Gothic Sleeved Shirt
   iconOverride: {fileID: 0}
-  price: 15
+  price: 12
   maxStack: 1
-  category: 0
-  mesh: {fileID: -1997072637900844015, guid: 0f970e43a3da4474abd8de0ec845cb38, type: 3}
-  defaultColor: {r: 0.26415092, g: 0.22054109, b: 0.22054109, a: 1}
-  material: {fileID: 2100000, guid: cb30a37ec15c80941873506b57db0dd9, type: 2}
+  category: 4
+  mesh: {fileID: -6932478202874304102, guid: 10ab6d36cac4464479ac44803e100221, type: 3}
+  defaultColor: {r: 1, g: 1, b: 1, a: 1}
+  material: {fileID: 2100000, guid: f704e69e5553d3e4db1b433ef1179d06, type: 2}
   textureOffset:
     x: 0
     y: 0

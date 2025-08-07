@@ -21,11 +21,14 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  displayName: Pants2
-  icon: {fileID: 21300000, guid: ae8a6c0e1d34d0f4abab164699160699, type: 3}
+  displayName: Light Jeans
+  iconOverride: {fileID: 0}
   price: 10
   maxStack: 1
   category: 5
   mesh: {fileID: -5768860637884414165, guid: 7beff93e97437a1418caba3e75662a16, type: 3}
   defaultColor: {r: 1, g: 1, b: 1, a: 1}
   material: {fileID: 2100000, guid: f36cba6e0f491a74190580aee66003aa, type: 2}
+  textureOffset:
+    x: 0
+    y: 0
