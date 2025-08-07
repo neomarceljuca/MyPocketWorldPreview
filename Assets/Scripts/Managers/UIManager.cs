@@ -8,22 +8,26 @@ namespace mpw.UI
         [SerializeField] Canvas mainCanvas;
         [SerializeField] Transform tooltipHolder;
         [SerializeField] GameObject tooltipBaseObject;
+        [SerializeField] GameObject ShopPrompt;
 
         [SerializeField] UI_CharacterCustomization CustomizationPanel;
-        [SerializeField] UI_Shop ShopPanel;
+        [SerializeField] UI_Shop shopPanel;
 
         private UI_Tooltip tooltipInstance;
         private UI_ContainerBase currentContainer;
+        private bool EnableShopToggle;
 
         public Canvas MainCanvas;
+        public UI_Shop ShopPanel => shopPanel;
 
         private void Update()
         {
+            if (MPWApp.Instance.LocalPlayer == null) return;
             if (Input.GetKeyDown(KeyCode.E))
             {
                 ToggleUI("CC");
             }
-            if (Input.GetKeyDown(KeyCode.Q))
+            if (Input.GetKeyDown(KeyCode.Q) && EnableShopToggle)
             {
                 ToggleUI("Shop");
             }
@@ -57,6 +61,12 @@ namespace mpw.UI
 
             Entity_PlayerMovement.Entity_PlayerMovementData playerMovement = MPWApp.Instance.LocalPlayer.Movement as Entity_PlayerMovement.Entity_PlayerMovementData;
             playerMovement.InputBlocked = shouldEnable;
+        }
+
+        public void ToggleShopPrompt(bool targetState) 
+        {
+            ShopPrompt.gameObject.SetActive(targetState);
+            EnableShopToggle = targetState;
         }
 
         public void ShowTooltip(string message)

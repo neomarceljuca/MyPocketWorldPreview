@@ -7,12 +7,14 @@ namespace mpw.UI
 {
     public class UI_ShopitemSlot : UI_ItemDisplaySlot, IBeginDragHandler, IDragHandler, IEndDragHandler
     {
+        #region Variables
         [SerializeField] private CanvasGroup canvasGroup;
         private Canvas canvas;
         private Transform originalParent;
-        private GridLayoutGroup originalGridZone;
+        private GridLayoutGroup originalGridLayoutGroup;
         UI_Shop shopContainer => container as UI_Shop;
-
+        #endregion
+        #region Behavior
         private void Start()
         {
             canvasGroup = GetComponent<CanvasGroup>();
@@ -23,7 +25,7 @@ namespace mpw.UI
         {
             base.Reset();
         }
-
+        #endregion
 
         #region Utilities
 
@@ -41,8 +43,10 @@ namespace mpw.UI
 
         }
 
-        private bool ValidateTransaction() 
+        private bool ValidateTransaction(GridLayoutGroup fromGLG, GridLayoutGroup toGLG) 
         {
+            if(fromGLG == toGLG)
+                return true;
             return true;
         }
         #endregion
@@ -53,7 +57,7 @@ namespace mpw.UI
             if (Data == null) return;
             canvasGroup.blocksRaycasts = false;
             originalParent = icon.transform.parent;
-            originalGridZone = originalParent.GetComponentInParent<GridLayoutGroup>();
+            originalGridLayoutGroup = originalParent.GetComponentInParent<GridLayoutGroup>();
             icon.transform.SetParent(canvas.transform);
         }
 
@@ -75,15 +79,15 @@ namespace mpw.UI
                 return;
             }
 
-            GridLayoutGroup newGridZone = dropTarget.GetComponentInParent<GridLayoutGroup>();
+            GridLayoutGroup newGridLayoutGroup = dropTarget.GetComponentInParent<GridLayoutGroup>();
 
-            if(newGridZone != null && originalGridZone != newGridZone) 
+            if(newGridLayoutGroup != null && originalGridLayoutGroup != newGridLayoutGroup) 
             {
-                Debug.Log($"Item moved from {originalGridZone.name} to {newGridZone.name}");
+                Debug.Log($"Item moved from {originalGridLayoutGroup.name} to {newGridLayoutGroup.name}");
             }
 
             ReturnToOriginalParent();
-            if (newGridZone != null && ValidateTransaction()) 
+            if (newGridLayoutGroup != null && ValidateTransaction(originalGridLayoutGroup, newGridLayoutGroup)) 
             {
                 SwapSlotsContent(dropTarget.GetComponent<UI_ShopitemSlot>());               
             }

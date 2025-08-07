@@ -31,13 +31,13 @@ namespace mpw.Entity
         #endregion
         #region Behaviour
         int i;
-        private void Awake()
+        protected virtual void Awake()
         {
             HandleComponentsInnit();
             m_networkObject = GetComponent<NetworkObject>();
         }
 
-        void Start()
+        protected virtual void Start()
         {
             if(!isNPC)
                 MultiplayerSetup();
@@ -48,8 +48,7 @@ namespace mpw.Entity
             MPWApp.Instance.OnSpawnPlayer(this, IsLocalPlayer);
             if (IsLocalPlayer) 
             {
-                
-                References.Inventory.Innit(References.StartingInventory);
+                References.Inventory.InnitData(References.StartingInventory, 100);
             }
         }
 

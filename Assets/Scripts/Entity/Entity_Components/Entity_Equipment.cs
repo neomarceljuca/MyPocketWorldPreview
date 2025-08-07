@@ -34,7 +34,6 @@ namespace mpw.Entity
             public void Innit()
             {
                 ItemGroup equipmentToBeLoaded = null;
-                //to do: Load equipment from stored data
 
                 if (equipmentToBeLoaded == null)
                 {

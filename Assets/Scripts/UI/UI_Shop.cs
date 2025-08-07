@@ -1,3 +1,4 @@
+using mpw.Entity;
 using mpw.InventorySystem;
 using Sirenix.OdinInspector;
 using System.Collections.Generic;
@@ -14,15 +15,14 @@ namespace mpw.UI
         [SerializeField] TextMeshProUGUI playerCurrency;
         [SerializeField] TextMeshProUGUI merchantCurrency;
 
-        
         [SerializeField] GridLayoutGroup playerItemsGrid;
         [SerializeField] GridLayoutGroup merchantItemsGrid;
         [SerializeField] List<UI_ShopitemSlot> playerItemsSlots;
         [SerializeField] List<UI_ShopitemSlot> merchantItemsSlots;
 
+        private Inventory playerInventory;
+        private Inventory merchantInventory;
 
-        [Title("Testing"), SerializeField] Inventory playerInventory;
-        [SerializeField] Inventory merchantInventory;
         #endregion
         #region Behavior
         public override void Show()
@@ -38,9 +38,18 @@ namespace mpw.UI
         #endregion
 
         #region Utilities
+        public void Setup(Entity_Merchant tradingMerchant)
+        {
+            merchantInventory = tradingMerchant.References.Inventory;
+            Setup();
+        }
         public void Setup() 
         {
-            LoadInventory(MPWApp.Instance.LocalPlayer.References.Inventory, playerItemsSlots);
+            playerInventory = MPWApp.Instance.LocalPlayer.References.Inventory;
+            LoadInventory(playerInventory, playerItemsSlots);
+            playerCurrency.text = playerInventory.CurrentBalance.ToString();
+            LoadInventory(merchantInventory, merchantItemsSlots);
+            merchantCurrency.text = merchantInventory.CurrentBalance.ToString();
         }
 
         public void LoadInventory(Inventory inventory, List<UI_ShopitemSlot> targetSlotList) 
@@ -49,10 +58,17 @@ namespace mpw.UI
             {
                 slot.Reset();
             }
+            if (inventory == null) return;
             for (int i = 0; i < inventory.Data.Count(); i++)
             {
                 targetSlotList[i].Setup(inventory.Data[i], this);
             }
+        }
+
+
+        public void ValidateTransaction() 
+        {
+            
         }
         #endregion
 
