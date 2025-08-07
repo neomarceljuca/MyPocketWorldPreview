@@ -1,4 +1,5 @@
 using mpw.Entity;
+using mpw.Multiplayer;
 using UnityEngine;
 using UnityEngine.UI;
 namespace mpw.UI
@@ -9,9 +10,11 @@ namespace mpw.UI
         [SerializeField] Transform tooltipHolder;
         [SerializeField] GameObject tooltipBaseObject;
         [SerializeField] GameObject ShopPrompt;
+        [SerializeField] GameObject CustomizePrompt;
 
         [SerializeField] UI_CharacterCustomization CustomizationPanel;
         [SerializeField] UI_Shop shopPanel;
+        [SerializeField] UI_MultiplayerLobby UI_MultiplayerLobby;
 
         private UI_Tooltip tooltipInstance;
         private UI_ContainerBase currentContainer;
@@ -19,6 +22,22 @@ namespace mpw.UI
 
         public Canvas MainCanvas;
         public UI_Shop ShopPanel => shopPanel;
+
+        private void Start()
+        {
+            MPWSessionManager.OnSessionCodeObtained += OnSessionCodeObtained;
+        }
+
+        private void OnDisable()
+        {
+            MPWSessionManager.OnSessionCodeObtained -= OnSessionCodeObtained;
+        }
+
+        public void OnSessionCodeObtained(string code) 
+        {
+            CustomizePrompt.gameObject.SetActive(true);
+            UI_MultiplayerLobby.SetupJoinCode(code);
+        }
 
         private void Update()
         {

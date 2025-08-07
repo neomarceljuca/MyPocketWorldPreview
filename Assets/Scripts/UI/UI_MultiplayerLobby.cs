@@ -15,12 +15,25 @@ public class UI_MultiplayerLobby : MonoBehaviour
     public void Button_Host() 
     {
         _ = sessionManager.SignInAndHostSession();
-        gameObject.SetActive(false);
+        SetOnlineState();
     }
 
     public void Button_Join() 
     {
         _ = sessionManager.SignInAndHostSession(joinCode.text);
-        gameObject.SetActive(false);
+        SetOnlineState();
     }
+
+    private void SetOnlineState() 
+    {
+        hostButton.interactable = false;
+        joinCode.interactable = false;
+        joinButton.interactable = false;
+    }
+
+    public void SetupJoinCode(string code) 
+    {
+        joinCode.text = code;
+        joinCode.interactable = false;
+    } 
 }

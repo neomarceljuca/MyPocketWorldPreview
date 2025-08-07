@@ -11,6 +11,7 @@ namespace mpw.Multiplayer
     public class MPWSessionManager : MonoBehaviour
     {
         ISession activeSession;
+        public static event Action<string> OnSessionCodeObtained;
 
         ISession ActiveSession
         {
@@ -75,6 +76,7 @@ namespace mpw.Multiplayer
 
             ActiveSession = await MultiplayerService.Instance.CreateSessionAsync(options);
             Debug.Log($"Session {ActiveSession.Id} created. Join code: {ActiveSession.Code}");
+            OnSessionCodeObtained.Invoke(ActiveSession.Code);
         }
     
         async Task JoinSessionById(string sessionId) 
@@ -87,6 +89,7 @@ namespace mpw.Multiplayer
         {
             ActiveSession = await MultiplayerService.Instance.JoinSessionByCodeAsync(sessionCode);
             Debug.Log($"Session {ActiveSession.Code} joined!");
+            OnSessionCodeObtained.Invoke(ActiveSession.Code);
         }
 
         async Task KickPlayer(string playerId) 

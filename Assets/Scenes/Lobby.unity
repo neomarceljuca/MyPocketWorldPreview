@@ -119,6 +119,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &27289682 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3021084429029474372, guid: 5ff8807b25c1c084b80a84fae27fb5c6, type: 3}
+  m_PrefabInstance: {fileID: 5092111310967560707}
+  m_PrefabAsset: {fileID: 0}
 --- !u!223 &150076270 stripped
 Canvas:
   m_CorrespondingSourceObject: {fileID: 3506993550136405607, guid: 5ff8807b25c1c084b80a84fae27fb5c6, type: 3}
@@ -587,6 +592,17 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!114 &1560671425 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4383036363749817436, guid: 5ff8807b25c1c084b80a84fae27fb5c6, type: 3}
+  m_PrefabInstance: {fileID: 5092111310967560707}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6f69d16403d4234387fc2f09a365327, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2031214714
 GameObject:
   m_ObjectHideFlags: 0
@@ -703,9 +719,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 960729798}
     - target: {fileID: 4888799327162667302, guid: c192b4c8b55bc5540855edbb4821cd3f, type: 3}
+      propertyPath: CustomizePrompt
+      value: 
+      objectReference: {fileID: 27289682}
+    - target: {fileID: 4888799327162667302, guid: c192b4c8b55bc5540855edbb4821cd3f, type: 3}
       propertyPath: CustomizationPanel
       value: 
       objectReference: {fileID: 326306632}
+    - target: {fileID: 4888799327162667302, guid: c192b4c8b55bc5540855edbb4821cd3f, type: 3}
+      propertyPath: UI_MultiplayerLobby
+      value: 
+      objectReference: {fileID: 1560671425}
     - target: {fileID: 6995652057310852075, guid: c192b4c8b55bc5540855edbb4821cd3f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.053745143
