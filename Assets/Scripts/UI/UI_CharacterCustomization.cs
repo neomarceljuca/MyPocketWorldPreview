@@ -29,8 +29,8 @@ namespace mpw.UI
             {
                 toggle.isOn = false;
             }
-            categoryStartingToggle.isOn = true; //Selects 'all' categories & sets up slots
             SetupPreview();
+            categoryStartingToggle.isOn = true; //Selects first enabled category & sets up slots
             base.Show();
         }
         #endregion
@@ -85,11 +85,11 @@ namespace mpw.UI
 
         public void Button_SaveChanges() 
         {
-            if (playerEntity != null) UpdateInventory();
+            if (playerEntity != null) UpdatePlayerInventory();
             Button_Close();
         }
 
-        public void UpdateInventory() 
+        public void UpdatePlayerInventory() 
         {
             foreach(var item in previewCharacter.Equipment.Equipped.Select(x => x.Value)) 
             {
