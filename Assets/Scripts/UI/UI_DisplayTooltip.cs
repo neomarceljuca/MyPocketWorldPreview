@@ -8,6 +8,7 @@ namespace mpw.UI
     public class UI_DisplayTooltip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         protected string tooltipText = "";
+        protected string tooltipText2 = "";
         void Start()
         {
 
@@ -16,7 +17,7 @@ namespace mpw.UI
         public virtual void OnPointerEnter(PointerEventData eventData)
         {
             if (tooltipText.IsNullOrWhitespace()) return;
-            MPWApp.Instance.UIManager.ShowTooltip(tooltipText);
+            MPWApp.Instance.UIManager.ShowTooltip(tooltipText, tooltipText2);
         }
 
         public virtual void OnPointerExit(PointerEventData eventData)

@@ -212,6 +212,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 5619162527886292309, guid: 6eef93bff5cc22141a3a65de265b45b4, type: 3}
+      propertyPath: startingBallance
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5780575131751375537, guid: 6eef93bff5cc22141a3a65de265b45b4, type: 3}
       propertyPath: m_Mesh
       value: 

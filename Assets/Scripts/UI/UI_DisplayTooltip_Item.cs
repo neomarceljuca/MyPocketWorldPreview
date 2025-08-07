@@ -10,6 +10,7 @@ namespace mpw.UI
         {
             if (_itemObject == null || _itemObject.Data == null) return;
             tooltipText = _itemObject.Data.Parameters.DisplayName;
+            tooltipText2 = _itemObject.Data.Parameters.Price.ToString();
             base.OnPointerEnter(eventData);
         }
     }

@@ -532,6 +532,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5619162527886292309, guid: 6eef93bff5cc22141a3a65de265b45b4, type: 3}
+      propertyPath: startingBallance
+      value: 200
+      objectReference: {fileID: 0}
     - target: {fileID: 5668218145540452450, guid: 6eef93bff5cc22141a3a65de265b45b4, type: 3}
       propertyPath: m_LocalScale.x
       value: 68.83
@@ -625,8 +629,6 @@ MonoBehaviour:
   entityEquipment: {fileID: 0}
   references: {fileID: 1003385242804622992}
   isNPC: 1
-  StartingMerchantBalance: 200
-  shopTriggerZone: {fileID: 0}
 --- !u!65 &3424347251015006610
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -646,8 +648,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.9102482, y: 1, z: 1.8170862}
-  m_Center: {x: 0.08884317, y: 0, z: -0.4085431}
+  m_Size: {x: 4.2037506, y: 1, z: 3.2578273}
+  m_Center: {x: 0.32015574, y: 0, z: -1.1289136}
 --- !u!114 &1003385242804622992
 MonoBehaviour:
   m_ObjectHideFlags: 0

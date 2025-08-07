@@ -5,12 +5,10 @@ namespace mpw.Entity
 {
     public class Entity_Merchant : Entity
     {
-        [SerializeField, TabGroup("Merchant")] float StartingMerchantBalance;
-
         protected override void Start()
         {
             base.Start();
-            References.Inventory.InnitData(References.StartingInventory, StartingMerchantBalance);
+            References.Inventory.InnitData(References.StartingInventory);
         }
 
         private void OnTriggerEnter(Collider other)

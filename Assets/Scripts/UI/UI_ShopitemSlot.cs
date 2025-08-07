@@ -12,7 +12,13 @@ namespace mpw.UI
         private Canvas canvas;
         private Transform originalParent;
         private GridLayoutGroup originalGridLayoutGroup;
+        private Inventory inventory;
         UI_Shop shopContainer => container as UI_Shop;
+       public Inventory Inventory 
+        {
+            get { return inventory; } 
+            protected set { inventory = value; }
+        } 
         #endregion
         #region Behavior
         private void Start()
@@ -24,6 +30,12 @@ namespace mpw.UI
         public override void Reset()
         {
             base.Reset();
+        }
+
+        public void Setup(ItemParameters.ItemData Data, UI_ContainerBase container, Inventory inventory) 
+        {
+            Setup(Data, container);
+            this.inventory = inventory;
         }
         #endregion
 
@@ -40,14 +52,23 @@ namespace mpw.UI
             ItemParameters.ItemData targetCurrentData = targetSlot.Data;
             targetSlot.Setup(this.Data, this.container);
             Setup(targetCurrentData, this.container);
-
         }
 
-        private bool ValidateTransaction(GridLayoutGroup fromGLG, GridLayoutGroup toGLG) 
+        private bool ValidateTransaction(UI_ShopitemSlot other) 
         {
-            if(fromGLG == toGLG)
+            if(inventory == other)
                 return true;
-            return true;
+            float otherPrice = other.Data != null? other.Data.Parameters.Price : 0;
+            float deltaCost = Data.Parameters.Price - otherPrice; //transaction attempt cost difference
+
+            if (inventory.CurrentBalance + deltaCost >= 0 &&
+                other.inventory.CurrentBalance - deltaCost >= 0) //if both inventories have enough money for transaction
+            {
+                shopContainer.ProcessTransaction(inventory, other.inventory, deltaCost);
+                return true;
+            }
+            else
+                return false;
         }
         #endregion
 
@@ -71,6 +92,7 @@ namespace mpw.UI
         {
             if (Data == null) return;
             GameObject dropTarget = eventData.pointerEnter;
+            UI_ShopitemSlot targetSlot = dropTarget.GetComponent<UI_ShopitemSlot>();
             canvasGroup.blocksRaycasts = true;
 
             if (dropTarget == null)
@@ -81,15 +103,15 @@ namespace mpw.UI
 
             GridLayoutGroup newGridLayoutGroup = dropTarget.GetComponentInParent<GridLayoutGroup>();
 
-            if(newGridLayoutGroup != null && originalGridLayoutGroup != newGridLayoutGroup) 
-            {
-                Debug.Log($"Item moved from {originalGridLayoutGroup.name} to {newGridLayoutGroup.name}");
-            }
-
             ReturnToOriginalParent();
-            if (newGridLayoutGroup != null && ValidateTransaction(originalGridLayoutGroup, newGridLayoutGroup)) 
+            if (newGridLayoutGroup != null && ValidateTransaction(targetSlot)) 
             {
-                SwapSlotsContent(dropTarget.GetComponent<UI_ShopitemSlot>());               
+                SwapSlotsContent(targetSlot);
+                if (newGridLayoutGroup != null && originalGridLayoutGroup != newGridLayoutGroup)
+                {
+                    Debug.Log($"Item moved from {originalGridLayoutGroup.name} to {newGridLayoutGroup.name}");
+                    shopContainer.UpdateInventoryData(originalGridLayoutGroup, newGridLayoutGroup);
+                }
             }
         }
         #endregion

@@ -54,25 +54,42 @@ namespace mpw.UI
 
         public void LoadInventory(Inventory inventory, List<UI_ShopitemSlot> targetSlotList) 
         {
-            foreach (var slot in targetSlotList) 
-            {
-                slot.Reset();
-            }
             if (inventory == null) return;
-            for (int i = 0; i < inventory.Data.Count(); i++)
+            for (int i = 0; i < targetSlotList.Count; i++)
             {
-                targetSlotList[i].Setup(inventory.Data[i], this);
+                ItemParameters.ItemData targetData = i < inventory.Data.Count()? inventory.Data[i] : null;
+                targetSlotList[i].Setup(targetData, this, inventory);
             }
         }
 
 
-        public void ValidateTransaction() 
+        public void ProcessTransaction(Inventory from, Inventory to, float delta) 
         {
-            
+            from.CurrentBalance += delta;
+            to.CurrentBalance -= delta;
+            playerCurrency.text = playerInventory.CurrentBalance.ToString();
+            merchantCurrency.text = merchantInventory.CurrentBalance.ToString();
+        }
+
+        public void UpdateInventoryData(GridLayoutGroup originalGLG, GridLayoutGroup newGLG)
+        {
+            if (originalGLG == newGLG) return;
+            Inventory originalInventory = originalGLG.transform.GetChild(0).GetComponent<UI_ShopitemSlot>().Inventory;
+            Inventory newInventory = newGLG.transform.GetChild(0).GetComponent<UI_ShopitemSlot>().Inventory;
+
+            originalInventory.InnitData(
+                originalGLG.GetComponentsInChildren<UI_ShopitemSlot>()
+                .Where(slot => slot.Data != null)
+                .Select(slot => slot.Data).ToArray());
+
+            newInventory.InnitData(
+                newGLG.GetComponentsInChildren<UI_ShopitemSlot>()
+                .Where(slot => slot.Data != null)
+                .Select(slot => slot.Data).ToArray());
         }
         #endregion
 
-        #region External
+            #region External
         public void Button_Close() => MPWApp.Instance.UIManager.ToggleUI("Shop");
         #endregion
     }

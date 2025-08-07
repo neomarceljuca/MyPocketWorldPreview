@@ -6,6 +6,7 @@ namespace mpw.UI
     {
         [SerializeField] Vector2 mouseOffset;
         public TextMeshProUGUI text;
+        public TextMeshProUGUI text2;
         private Canvas canvas;
         private void Start()
         {
@@ -24,9 +25,12 @@ namespace mpw.UI
             transform.localPosition = position + mouseOffset;
         }
 
-        public void SetTexts(string targetText)
+        public void SetTexts(string targetText, string targetText2)
         {
-            text.text = targetText;
+            if (text != null)
+                text.text = targetText;
+            if (text2 != null)
+                text2.text = targetText2;
         }
     }
 }

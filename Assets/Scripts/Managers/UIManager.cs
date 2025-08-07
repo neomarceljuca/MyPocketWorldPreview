@@ -69,13 +69,13 @@ namespace mpw.UI
             EnableShopToggle = targetState;
         }
 
-        public void ShowTooltip(string message)
+        public void ShowTooltip(string message1, string message2)
         {
             if (tooltipInstance == null)
             {
                 tooltipInstance = Instantiate(tooltipBaseObject, tooltipHolder).GetComponent<UI_Tooltip>();
             }
-            tooltipInstance.SetTexts(message);
+            tooltipInstance.SetTexts(message1, message2);
 
             LayoutRebuilder.ForceRebuildLayoutImmediate(tooltipInstance.transform as RectTransform);
             tooltipInstance.gameObject.SetActive(true);

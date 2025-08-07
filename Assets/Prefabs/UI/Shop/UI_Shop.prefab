@@ -3693,6 +3693,10 @@ PrefabInstance:
       propertyPath: m_Group
       value: 
       objectReference: {fileID: 1211427235150645472}
+    - target: {fileID: 8279781897003912004, guid: e38081931f108a541a3b31af2ab6a5ec, type: 3}
+      propertyPath: m_BlockingMask.m_Bits
+      value: 119
+      objectReference: {fileID: 0}
     - target: {fileID: 8979057339641903407, guid: e38081931f108a541a3b31af2ab6a5ec, type: 3}
       propertyPath: m_Name
       value: UI_ShopGridItem

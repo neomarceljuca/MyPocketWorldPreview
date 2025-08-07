@@ -48,7 +48,7 @@ namespace mpw.Entity
             MPWApp.Instance.OnSpawnPlayer(this, IsLocalPlayer);
             if (IsLocalPlayer) 
             {
-                References.Inventory.InnitData(References.StartingInventory, 100);
+                References.Inventory.InnitData(References.StartingInventory);
             }
         }
 
