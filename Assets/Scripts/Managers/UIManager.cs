@@ -76,6 +76,7 @@ namespace mpw.UI
             {
                 currentContainer = null;
                 targetContainer.Hide();
+                HideTooltip();
             } 
 
             Entity_PlayerMovement.Entity_PlayerMovementData playerMovement = MPWApp.Instance.LocalPlayer.Movement as Entity_PlayerMovement.Entity_PlayerMovementData;

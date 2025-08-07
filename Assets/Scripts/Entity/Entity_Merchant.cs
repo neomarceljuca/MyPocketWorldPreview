@@ -15,6 +15,7 @@ namespace mpw.Entity
         {
             if (other.CompareTag("Player")) 
             {
+                if (!other.GetComponentInParent<Entity>().IsLocalPlayer) return;
                 MPWApp.Instance.UIManager.ToggleShopPrompt(true);
                 MPWApp.Instance.UIManager.ShopPanel.Setup(this);
             }
