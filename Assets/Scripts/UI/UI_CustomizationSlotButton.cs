@@ -21,7 +21,6 @@ namespace mpw.UI
         {
             toggle.isOn = overrideEntity.Equipment.isEquipping(data as EquipmentParameters.EquipmentData);
             toggle.interactable = true;
-            //equippedIcon.gameObject.SetActive(overrideEntity.Equipment.isEquipping(data as EquipmentParameters.EquipmentData));
             Setup(data, container);
 
             toggle.onValueChanged.AddListener((isOn) => {

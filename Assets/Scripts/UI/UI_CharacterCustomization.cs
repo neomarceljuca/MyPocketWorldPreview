@@ -81,7 +81,7 @@ namespace mpw.UI
         #endregion
 
         #region External
-        public void Button_Close() => MPWApp.Instance.UIManager.ToggleUI("");
+        public void Button_Close() => MPWApp.Instance.UIManager.ToggleUI("CC");
 
         public void Button_SaveChanges() 
         {

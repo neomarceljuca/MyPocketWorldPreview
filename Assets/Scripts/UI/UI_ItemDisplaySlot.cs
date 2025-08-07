@@ -12,6 +12,13 @@ namespace mpw.UI
 
         public virtual void Setup(ItemParameters.ItemData Data, UI_ContainerBase container) 
         {
+            if (Data == null) 
+            {
+                this.container = container;
+                Reset();
+                return;
+            }
+
             this.Data = Data;
             icon.sprite = Data.Parameters.DisplayIcon;
             icon.enabled = true;

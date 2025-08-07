@@ -10,8 +10,10 @@ namespace mpw.UI
         [SerializeField] GameObject tooltipBaseObject;
 
         [SerializeField] UI_CharacterCustomization CustomizationPanel;
+        [SerializeField] UI_Shop ShopPanel;
 
         private UI_Tooltip tooltipInstance;
+        private UI_ContainerBase currentContainer;
 
         public Canvas MainCanvas;
 
@@ -19,16 +21,39 @@ namespace mpw.UI
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                ToggleUI(""); //to do: improve panels management and control
+                ToggleUI("CC");
+            }
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                ToggleUI("Shop");
             }
         }
 
         public void ToggleUI(string uiType)
         {
-            bool shouldEnable = !CustomizationPanel.gameObject.activeSelf;
+            UI_ContainerBase targetContainer = null;
+            switch (uiType) 
+            {
+                case "CC":
+                    targetContainer = CustomizationPanel;
+                    break;
+                case "Shop":
+                    targetContainer = ShopPanel;
+                    break;
+            }
+            bool shouldEnable = !targetContainer.gameObject.activeSelf;
 
-            if (shouldEnable) CustomizationPanel.Show();
-            else CustomizationPanel.Hide();
+            if (shouldEnable)
+            {
+                if (currentContainer != null) return;
+                currentContainer = targetContainer;
+                targetContainer.Show();
+            }
+            else 
+            {
+                currentContainer = null;
+                targetContainer.Hide();
+            } 
 
             Entity_PlayerMovement.Entity_PlayerMovementData playerMovement = MPWApp.Instance.LocalPlayer.Movement as Entity_PlayerMovement.Entity_PlayerMovementData;
             playerMovement.InputBlocked = shouldEnable;
@@ -50,6 +75,5 @@ namespace mpw.UI
         {
             tooltipInstance?.gameObject.SetActive(false);
         }
-
     }
 }
